@@ -4,7 +4,7 @@
 <div class="page-content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-4">
                 <div class="card">
                     <img class="card-img-top img-fluid" src="{{ url('upload/admin_images/'.$adminData->profile_image) }}" alt="Card image cap">
                     <div class="card-body">

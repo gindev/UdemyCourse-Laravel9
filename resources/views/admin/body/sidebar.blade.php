@@ -1,3 +1,5 @@
+@php($user = Auth::user())
+
 <div class="vertical-menu">
 
     <div data-simplebar class="h-100">
@@ -5,7 +7,7 @@
         <!-- User details -->
         <div class="user-profile text-center mt-3">
             <div class="">
-                <img src="assets/images/users/avatar-1.jpg" alt="" class="avatar-md rounded-circle">
+                <img src="{{ url('upload/admin_images/'.$user->profile_image) }}" alt="" class="avatar-md rounded-circle">
             </div>
             <div class="mt-3">
                 <h4 class="font-size-16 mb-1">Julia Hudda</h4>
