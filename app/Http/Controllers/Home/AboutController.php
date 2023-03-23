@@ -98,7 +98,7 @@ class AboutController extends Controller
             'alert-type' => 'success',
         );
 
-        return redirect()->back()->with($notification);
+        return redirect()->route('all.multi.image')->with($notification);
     }
 
     public function AllMultiImage()
@@ -136,7 +136,34 @@ class AboutController extends Controller
                 'alert-type' => 'success',
             );
 
-            return redirect()->route('all.multi.image')->with($notification);
+            //return redirect()->route('all.multi.image')->with($notification);
         }
+        else
+        {
+            $notification = array(
+                'message' => 'Nothing updated, no image uploaded',
+                'alert-type' => 'warning',
+            );
+            
+        }
+        return redirect()->route('all.multi.image')->with($notification);
+    }
+
+    public function DeleteMultiImage($id)
+    {
+        $multi = MultiImage::findOrFail($id);
+        $img = $multi->multi_image;
+        unlink($img);
+        
+        // try to delete with $multi->delete();
+
+        MultiImage::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Multi Image Deleted Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('all.multi.image')->with($notification);
     }
 }
