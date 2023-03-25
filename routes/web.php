@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\HomeSliderController;
 
 /*
@@ -33,6 +34,12 @@ Route::controller(AdminController::class)->group(function() {
 Route::controller(HomeSliderController::class)->group(function() {
     Route::get('/home/slide', 'HomeSlider')->name('home.slide');
     Route::post('/update/slide', 'UpdateSlider')->name('update.slide');
+});
+
+Route::controller(PortfolioController::class)->group(function() {
+    Route::get('/all/portfolio', 'AllPortfolio')->name('all.portfolio');
+    Route::get('/add/portfolio', 'AddPortfolio')->name('add.portfolio');
+    Route::post('/store/portfolio', 'StorePortfolio')->name('store.portfolio');
 });
 
 Route::controller(AboutController::class)->group(function() {

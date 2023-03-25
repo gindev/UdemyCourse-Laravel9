@@ -1,6 +1,6 @@
 -- MariaDB dump 10.19  Distrib 10.11.2-MariaDB, for Win64 (AMD64)
 --
--- Host: localhost    Database: basicproject
+-- Host: localhost    Database: basicProject
 -- ------------------------------------------------------
 -- Server version	10.11.2-MariaDB
 
@@ -117,7 +117,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,7 +133,8 @@ INSERT INTO `migrations` VALUES
 (4,'2019_12_14_000001_create_personal_access_tokens_table',1),
 (5,'2023_03_05_053452_create_home_slides_table',1),
 (6,'2023_03_05_083403_create_abouts_table',1),
-(7,'2023_03_05_135922_create_multi_images_table',1);
+(7,'2023_03_05_135922_create_multi_images_table',1),
+(8,'2023_03_25_060014_create_portfolios_table',2);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,6 +226,34 @@ LOCK TABLES `personal_access_tokens` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `portfolios`
+--
+
+DROP TABLE IF EXISTS `portfolios`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `portfolios` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `portfolio_name` varchar(255) DEFAULT NULL,
+  `portfolio_title` varchar(255) DEFAULT NULL,
+  `portfolio_image` varchar(255) DEFAULT NULL,
+  `portfolio_description` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `portfolios`
+--
+
+LOCK TABLES `portfolios` WRITE;
+/*!40000 ALTER TABLE `portfolios` DISABLE KEYS */;
+/*!40000 ALTER TABLE `portfolios` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -268,4 +297,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-23 20:10:46
+-- Dump completed on 2023-03-25  8:52:46
