@@ -8,14 +8,15 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Portfolio Page</h4>
-                        <form method="post" action="{{ route('store.portfolio') }}" enctype="multipart/form-data">
+                        <h4 class="card-title">Portfolio Edit Page</h4>
+                        <form method="post" action="{{ route('update.portfolio') }}" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $portfolio->id }}">
 
                             <div class="row mb-3">
                                 <label for="portfolio_name" class="col-sm-2 col-form-label">Portfolio Name</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" id="portfolio_name" name="portfolio_name">
+                                    <input class="form-control" type="text" id="portfolio_name" name="portfolio_name" value="{{ $portfolio->portfolio_name }}">
                                     @error('portfolio_name')
                                     <span class="text-danger"> {{ $message }} </span>
                                     @enderror
@@ -25,7 +26,7 @@
                             <div class="row mb-3">
                                 <label for="portfolio_title" class="col-sm-2 col-form-label">Portfolio Title</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" id="portfolio_title" name="portfolio_title">
+                                    <input class="form-control" type="text" id="portfolio_title" name="portfolio_title" value="{{ $portfolio->portfolio_title }}">
                                     @error('portfolio_title')
                                     <span class="text-danger"> {{ $message }} </span>
                                     @enderror
@@ -35,7 +36,7 @@
                             <div class="row mb-3">
                                 <label for="portfolio_description" class="col-sm-2 col-form-label">Portfolio Description</label>
                                 <div class="col-sm-10">
-                                    <textarea name="portfolio_description" id="elm1"></textarea>
+                                    <textarea name="portfolio_description" id="elm1">{{ $portfolio->portfolio_description }}</textarea>
                                 </div>
                             </div>
                             <!-- end row -->
@@ -49,11 +50,11 @@
                             <div class="row mb-3">
                                 <label for="image_preview" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img class="rounded avatar-lg" id="image_preview" src="{{ url('upload/no-image.png') }}" alt="Card image cap">
+                                    <img class="rounded avatar-lg" id="image_preview" src="{{ ($portfolio->portfolio_image ? asset($portfolio->portfolio_image) : url('upload/no-image.png')) }}" alt="Card image cap">
                                 </div>
                             </div>
                             <!-- end row -->
-                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Insert Portfolio Data">
+                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Portfolio Data">
                         </form>
                     </div>
                 </div>
