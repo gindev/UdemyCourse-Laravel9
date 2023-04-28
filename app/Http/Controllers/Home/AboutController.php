@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Home;
 use App\Models\About;
 use App\Models\MultiImage;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Intervention\Image\Facades\Image;
 

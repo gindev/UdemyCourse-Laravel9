@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use Carbon\Carbon;
 use App\Models\HomeSlide;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -16,7 +17,7 @@ class HomeSliderController extends Controller
 
         return view('admin.home_slide.home_slide_all', compact('homeslide'));
     }
-
+    
     public function UpdateSlider(Request $request)
     {
         $slide_id = $request->id;
@@ -35,6 +36,7 @@ class HomeSliderController extends Controller
                 'short_title' => $request->short_title,
                 'video_url' => $request->video_url,
                 'home_slide' => $save_url,
+                'created_at' => Carbon::now(),
             ]);
 
             $notification = array(
