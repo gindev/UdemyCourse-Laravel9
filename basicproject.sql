@@ -110,6 +110,38 @@ INSERT INTO `blogs` VALUES
 UNLOCK TABLES;
 
 --
+-- Table structure for table `contacts`
+--
+
+DROP TABLE IF EXISTS `contacts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `contacts` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `message` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contacts`
+--
+
+LOCK TABLES `contacts` WRITE;
+/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
+INSERT INTO `contacts` VALUES
+(1,'Ponski','gindev@gmail.com','Test subject','+359897042778','Test message body written',NULL,NULL),
+(2,'dasdaslkdj','dalskjdalskjd@dalskdja.das','lsadkjlaskj daslkjdaslk djaslkdjas','02394823048230847230','alskdjds lfjhd jhf lj hdksjfhsd kfjhsdkfjhsd fksd','2023-04-30 02:03:19',NULL);
+/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `failed_jobs`
 --
 
@@ -213,7 +245,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -233,7 +265,8 @@ INSERT INTO `migrations` VALUES
 (8,'2023_03_25_060014_create_portfolios_table',2),
 (9,'2023_04_01_172729_create_blog_categories_table',3),
 (10,'2023_04_01_194011_create_blogs_table',4),
-(11,'2023_04_29_043723_create_footers_table',5);
+(11,'2023_04_29_043723_create_footers_table',5),
+(12,'2023_04_30_040938_create_contacts_table',6);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -398,4 +431,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-04-29 18:22:33
+-- Dump completed on 2023-04-30  8:11:37
