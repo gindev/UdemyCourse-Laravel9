@@ -21,18 +21,19 @@ use App\Http\Controllers\Home\FooterController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::controller(AdminController::class)->group(function() {
-    Route::get('/admin/logout', 'destroy')->name('admin.logout');
-    Route::get('/admin/profile', 'Profile')->name('admin.profile');
-    Route::get('/edit/profile', 'EditProfile')->name('edit.profile');
-    Route::post('/store/profile', 'StoreProfile')->name('store.profile');
-    Route::get('/change/password', 'ChangePassword')->name('change.password');
-    Route::post('/update/password', 'UpdatePassword')->name('update.password');
-
-    Route::get('/dashboard', function () {
-        return view('admin.index');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth'])->group(function(){
+    Route::controller(AdminController::class)->group(function() {
+        Route::get('/admin/logout', 'destroy')->name('admin.logout');
+        Route::get('/admin/profile', 'Profile')->name('admin.profile');
+        Route::get('/edit/profile', 'EditProfile')->name('edit.profile');
+        Route::post('/store/profile', 'StoreProfile')->name('store.profile');
+        Route::get('/change/password', 'ChangePassword')->name('change.password');
+        Route::post('/update/password', 'UpdatePassword')->name('update.password');
+    
+        Route::get('/dashboard', function () {
+            return view('admin.index');
+        })->middleware(['verified'])->name('dashboard');
+    });
 });
 
 Route::controller(HomeSliderController::class)->group(function() {
@@ -48,6 +49,7 @@ Route::controller(PortfolioController::class)->group(function() {
     Route::post('/update/portfolio', 'UpdatePortfolio')->name('update.portfolio');
     Route::get('/delete/portfolio/{id}', 'DeletePortfolio')->name('delete.portfolio');
     Route::get('/portfolio/details/{id}', 'PortfolioDetails')->name('portfolio.details');
+    Route::get('/portfolio', 'HomePortfolio')->name('home.portfolio');
 });
 
 Route::controller(BlogCategoryController::class)->group(function(){

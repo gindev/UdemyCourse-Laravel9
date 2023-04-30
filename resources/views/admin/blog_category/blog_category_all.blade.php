@@ -29,10 +29,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @php($i = 1)
-                            @foreach($blogCategories as $blogCategory)
+                            @foreach($blogCategories as $key => $blogCategory)
                             <tr>
-                                <td>{{ $i++ }}</td>
+                                <td>{{ $key+1 }}</td>
                                 <td>{{ $blogCategory->blog_category }}</td>
                                 <td>
                                     <a href="{{ route('edit.blog.category', $blogCategory->id)}}" class="btn btn-info sm" title="Edit Data"><i class="fas fa-edit"></i></a>

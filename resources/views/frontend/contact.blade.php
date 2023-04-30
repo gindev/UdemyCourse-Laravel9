@@ -1,6 +1,9 @@
 @extends('frontend.main_master')
 @section('main')
 
+@section('title')
+Contact | Easylearning WebSite
+@endsection
 <main>
 
     <!-- breadcrumb-area -->
