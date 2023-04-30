@@ -1,6 +1,6 @@
 @php
     $aboutpage = App\Models\About::find(1);
-    $allMultiImage = App\Models\multiImage::all();
+    $allMultiImage = App\Models\MultiImage::all();
 @endphp
 
 <section id="aboutSection" class="about">

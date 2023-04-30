@@ -6,7 +6,7 @@
         <title>@yield('title')</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <meta name="robots" content="noindex,nofollow">
 		<link rel="shortcut icon" type="image/x-icon" href="{{ asset('frontend/assets/img/favicon.png') }}">
         <!-- Place favicon.ico in the root directory -->
 
